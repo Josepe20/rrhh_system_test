@@ -3,6 +3,7 @@ from database import SessionLocal
 from sqlalchemy import text
 # from flask_cors import CORS
 from api.index_router import index_router  # Importar el blueprint principal
+from middlewares.exception_middleware import ExceptionHandlingMiddleware
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ origins = [
 # CORS(app, resources={r"/*": {"origins": origins}})
 
 # Register middlewares 
-
+ExceptionHandlingMiddleware(app)
 
 # Registrar el Blueprint principal
 app.register_blueprint(index_router, url_prefix="/api")
