@@ -1,4 +1,6 @@
 from flask import Flask
+from database import SessionLocal
+from sqlalchemy import text
 # from flask_cors import CORS
 from api.index_router import index_router  # Importar el blueprint principal
 
@@ -25,6 +27,19 @@ app.register_blueprint(index_router, url_prefix="/api")
 @app.route("/", methods=["GET"])
 def read_root():
     return {"message": "Welcome to My RRHH System Web API"}
+
+
+@app.route('/check_db')
+def check_db():
+    try:
+        db = SessionLocal()
+        result = db.execute(text('SELECT 1')).scalar()  # Usar text() para consultas sin procesar
+        return f"DB connection successful! Result: {result}", 200
+    except Exception as e:
+        return f"DB connection failed: {e}", 500
+    finally:
+        db.close()
+
 
 
 if __name__ == "__main__":

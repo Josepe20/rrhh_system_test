@@ -16,36 +16,41 @@ def read_root():
 
 
 @department_router.route("/create", methods=["POST"])
-def create_department(db: Session = get_db_session) -> StandardResponse:
-     # Obtenemos los datos del request JSON
+def create_department() -> StandardResponse:
+    db: Session = get_db_session()  # Obtenemos la sesión correctamente
+    # Obtenemos los datos del request JSON
     create_data: DepartmentCreate = request.get_json()
 
     created_department = department_view.create_department(create_data, db)
-    return standard_response(201, 'department created succesfully', created_department, DepartmentResponse)
+    return standard_response(201, 'department created successfully', created_department, DepartmentResponse)
 
 
 @department_router.route("/update/<int:id>", methods=["PUT"])
-def update_department_by_id(id: int, db: Session = get_db_session) -> StandardResponse:
-     # Obtenemos los datos del request JSON
+def update_department_by_id(id: int) -> StandardResponse:
+    db: Session = get_db_session()  # Obtenemos la sesión correctamente
+    # Obtenemos los datos del request JSON
     update_data: DepartmentCreate = request.get_json()
 
     updated_department = department_view.update_department_by_id(id, update_data, db)
-    return standard_response(200, 'department updated succesfully', updated_department, DepartmentResponse)
+    return standard_response(200, 'department updated successfully', updated_department, DepartmentResponse)
 
 
 @department_router.route("/delete/<int:id>", methods=["DELETE"])
-def delete_department_by_id(id: int, db: Session = get_db_session) -> StandardResponse:
+def delete_department_by_id(id: int) -> StandardResponse:
+    db: Session = get_db_session()  # Obtenemos la sesión correctamente
     deleted_department = department_view.delete_department_by_id(id, db)
-    return standard_response(200, 'department deleted succesfully', deleted_department, DepartmentResponse)
+    return standard_response(200, 'department deleted successfully', deleted_department, DepartmentResponse)
 
 
 @department_router.route("/<int:id>", methods=["GET"])
-def get_department_by_id(id: int, db: Session = get_db_session) -> StandardResponse:
+def get_department_by_id(id: int) -> StandardResponse:
+    db: Session = get_db_session()  # Obtenemos la sesión correctamente
     department_found = department_view.get_department_by_id(id, db)
-    return standard_response(200, 'department found succesfully', department_found, DepartmentResponse)
+    return standard_response(200, 'department found successfully', department_found, DepartmentResponse)
 
 
 @department_router.route("/all", methods=["GET"])
-def get_all_departments(db: Session = get_db_session) -> StandardResponse:
+def get_all_departments() -> StandardResponse:
+    db: Session = get_db_session()  # Obtenemos la sesión correctamente
     department_list = department_view.get_all_departments(db)
-    return standard_response(200, 'departments found succesfully', department_list, list[DepartmentResponse])
+    return standard_response(200, 'departments found successfully', department_list, DepartmentResponse)

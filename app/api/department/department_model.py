@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean
 from sqlalchemy.orm import relationship
 from database import Base
+from api.employees.employee_model import Employee
 
 class Department(Base):
     __tablename__ = "departments"
@@ -11,5 +12,5 @@ class Department(Base):
     status = Column(Boolean, nullable=False)
 
     # Relación con empleados (One-to-Many)
-    employees = relationship("Employee", back_populates="department")
+    employees = relationship("Employee", back_populates="department", lazy="dynamic")
 

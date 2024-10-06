@@ -9,13 +9,12 @@ def create_department(create_data: DepartmentCreate, db: Session ) -> Department
     department_repository = DepartmentRepository(db)
 
     new_department = Department(
-        id=create_data.id,
         name=create_data.name,
         states=create_data.status
     )
 
-    created_income = department_repository.create_department(new_department)
-    return created_income
+    created_department = department_repository.create_department(new_department)
+    return created_department
 
 
 def update_department_by_id(id: int, updateData: DepartmentCreate, db: Session) -> DepartmentResponse:
@@ -40,7 +39,7 @@ def delete_department_by_id(id: int, db: Session) -> DepartmentResponse:
 
 def get_department_by_id(id: int, db: Session ) -> DepartmentResponse:
     department_repository = DepartmentRepository(db)
-    department = department_repository.get_all_department(id)
+    department = department_repository.get_department_by_id(id)
     
     return get_object_or_404(department)
 
