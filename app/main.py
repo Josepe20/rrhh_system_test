@@ -1,7 +1,7 @@
 from flask import Flask
 from database import SessionLocal
 from sqlalchemy import text
-# from flask_cors import CORS
+from flask_cors import CORS
 from api.index_router import index_router  # Importar el blueprint principal
 from middlewares.exception_middleware import ExceptionHandlingMiddleware
 
@@ -15,7 +15,7 @@ origins = [
 ]
 
 # Configurar CORS
-# CORS(app, resources={r"/*": {"origins": origins}})
+CORS(app, resources={r"/*": {"origins": origins}})
 
 # Register middlewares 
 ExceptionHandlingMiddleware(app)
