@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 # CORS server URIs (Angular Client App)
 origins = [
-    "http://localhost:8081",
-    "http://127.0.0.1:8081",
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
     # Añadir otros orígenes si es necesario
 ]
 

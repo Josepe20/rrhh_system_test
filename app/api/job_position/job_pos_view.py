@@ -9,8 +9,8 @@ def create_job_position(create_data: JobPositionCreate, db: Session ) -> JobPosi
     job_position_repository = JobPositionRepository(db)
 
     new_job_position = JobPosition(
-        name=create_data.name,
-        states=create_data.status
+        name=create_data["name"],
+        states=create_data["status"]
     )
 
     created_job_position = job_position_repository.create_job_position(new_job_position)

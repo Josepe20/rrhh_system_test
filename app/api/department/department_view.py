@@ -9,8 +9,8 @@ def create_department(create_data: DepartmentCreate, db: Session ) -> Department
     department_repository = DepartmentRepository(db)
 
     new_department = Department(
-        name=create_data.name,
-        states=create_data.status
+        name=create_data["name"],
+        status=create_data["status"]  
     )
 
     created_department = department_repository.create_department(new_department)

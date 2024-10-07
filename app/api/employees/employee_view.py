@@ -9,12 +9,12 @@ def create_employee(create_data: EmployeeCreate, db: Session ) -> EmployeeRespon
     employee_repository = EmployeeRepository(db)
 
     new_job_employee = Employee(
-        first_name = create_data.first_name,
-        last_name = create_data.last_name,
-        address = create_data.address,
-        birth_date = create_data.birth_date,
-        department_id = create_data.department_id,
-        job_position_id = create_data.job_position_id,
+        first_name = create_data["first_name"],
+        last_name = create_data["last_name"],
+        address = create_data["address"],
+        birth_date = create_data["birth_date"],
+        department_id = create_data["department_id"],
+        job_position_id = create_data["job_position_id"],
     )
 
     created_employee = employee_repository.create_employee(new_job_employee)
