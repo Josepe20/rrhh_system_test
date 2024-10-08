@@ -21,7 +21,7 @@ def create_job_position() -> StandardResponse:
     db: Session = get_db_session()  # Obtenemos la sesión correctamente
     # Obtenemos los datos del request JSON
     create_data: JobPositionCreate = request.get_json()
-
+    
     created_job_position = job_pos_view.create_job_position(create_data, db)
     return standard_response(201, 'job_position created successfully', created_job_position, JobPositionResponse)
 

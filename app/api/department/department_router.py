@@ -20,7 +20,6 @@ def create_department() -> StandardResponse:
     db: Session = get_db_session()  # Obtenemos la sesión correctamente
     # Obtenemos los datos del request JSON
     create_data: DepartmentCreate= request.get_json()
-    print(create_data)
 
     created_department = department_view.create_department(create_data, db)
     return standard_response(201, 'department created successfully', created_department, DepartmentResponse)
