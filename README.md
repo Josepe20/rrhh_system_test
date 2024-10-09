@@ -72,38 +72,39 @@ DB CREDENTIALS
 
 ## Repository Architecture
 
+## Repository Architecture
+
 rrhh-system-api/
 ├── __pycache__/
 ├── .github/
-│   ├── workflows/
-|   │   ├── BudgetAction.yml
+│   └── workflows/
+│       └── BudgetAction.yml
 ├── alembic/
 ├── app/
 │   ├── __init__.py
 │   ├── api/
-|   │   ├── index_router.py (main router)
+│   │   ├── index_router.py (main router)
 │   │   ├── employee/
-│   │   │     ├── employee_model.py
-│   │   │     ├── employee_schema.py
-│   │   │     ├── employee_router.py (user endpoints)
-│   │   │     ├── employee_view.py
-│   │   │     ├── employee_repository.py
+│   │   │   ├── employee_model.py
+│   │   │   ├── employee_schema.py
+│   │   │   ├── employee_router.py (user endpoints)
+│   │   │   ├── employee_view.py
+│   │   │   ├── employee_repository.py
 │   │   ├── department/
 │   │   ├── job_position/
-│   |
 │   ├── middleware/
-│   │     ├── exception_middleware.py
+│   │   └── exception_middleware.py
 │   ├── common/
-│   │     ├── functions/
-│   │     │     ├── response_api.py (standar response)
-│   │     ├── schemas/
-│   │     │     ├── response_api_schema.py (standar response schema)
+│   │   ├── functions/
+│   │   │   └── response_api.py (standard response)
+│   │   ├── schemas/
+│   │   │   └── response_api_schema.py (standard response schema)
 │   ├── main.py
 │   ├── config.py
 │   ├── database.py
 │   ├── dependencies.py
 ├── bin/
-│     ├── entrypoint.sh/
+│   └── entrypoint.sh
 ├── docker-compose.yml
 ├── Dockerfile
 ├── .env
@@ -112,7 +113,8 @@ rrhh-system-api/
 ├── README.md
 ├── requirements.txt
 ├── tests/
-├── venv/
+└── venv/
+
 
     
 
