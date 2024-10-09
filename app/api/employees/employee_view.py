@@ -8,7 +8,7 @@ from common.functions.get_object import get_object_or_404, get_list_or_404
 def create_employee(create_data: EmployeeCreate, db: Session ) -> EmployeeResponse:
     employee_repository = EmployeeRepository(db)
 
-    new_job_employee = Employee(
+    new_job_employee: EmployeeCreate = Employee(
         first_name = create_data["first_name"],
         last_name = create_data["last_name"],
         address = create_data["address"],

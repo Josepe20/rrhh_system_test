@@ -8,7 +8,7 @@ from common.functions.get_object import get_object_or_404, get_list_or_404
 def create_department(create_data: DepartmentCreate, db: Session ) -> DepartmentResponse:
     department_repository = DepartmentRepository(db)
 
-    new_department = Department(
+    new_department: DepartmentCreate = Department(
         name=create_data["name"],
         status=create_data["status"]  
     )

@@ -12,8 +12,8 @@ class Employee(Base):
     address = Column(String, nullable=False)
     birth_date = Column(Date, nullable=False)
 
-    department_id = Column(Integer, ForeignKey('rrhh.departments.id'))
-    job_position_id = Column(Integer, ForeignKey('rrhh.job_positions.id'))
+    department_id = Column(Integer, ForeignKey('rrhh.departments.id', ondelete='CASCADE'))
+    job_position_id = Column(Integer, ForeignKey('rrhh.job_positions.id', ondelete='CASCADE'))
 
     # Relación con departamentos (Many-to-One)
     department = relationship("Department", back_populates="employees")

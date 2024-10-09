@@ -8,7 +8,7 @@ from common.functions.get_object import get_object_or_404, get_list_or_404
 def create_job_position(create_data: JobPositionCreate, db: Session ) -> JobPositionResponse:
     job_position_repository = JobPositionRepository(db)
 
-    new_job_position = JobPosition(
+    new_job_position: JobPositionCreate = JobPosition(
         name=create_data["name"],
         status=create_data["status"]
     )
