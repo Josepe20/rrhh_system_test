@@ -69,6 +69,51 @@ DB CREDENTIALS
     PORT_DB=your_port
     DATABASE_NAME=your_db_name
 
+
+## Repository Architecture
+
+rrhh-system-api/
+├── __pycache__/
+├── .github/
+│   ├── workflows/
+|   │   ├── BudgetAction.yml
+├── alembic/
+├── app/
+│   ├── __init__.py
+│   ├── api/
+|   │   ├── index_router.py (main router)
+│   │   ├── employee/
+│   │   │     ├── employee_model.py
+│   │   │     ├── employee_schema.py
+│   │   │     ├── employee_router.py (user endpoints)
+│   │   │     ├── employee_view.py
+│   │   │     ├── employee_repository.py
+│   │   ├── department/
+│   │   ├── job_position/
+│   |
+│   ├── middleware/
+│   │     ├── exception_middleware.py
+│   ├── common/
+│   │     ├── functions/
+│   │     │     ├── response_api.py (standar response)
+│   │     ├── schemas/
+│   │     │     ├── response_api_schema.py (standar response schema)
+│   ├── main.py
+│   ├── config.py
+│   ├── database.py
+│   ├── dependencies.py
+├── bin/
+│     ├── entrypoint.sh/
+├── docker-compose.yml
+├── Dockerfile
+├── .env
+├── alembic.ini
+├── pytest.ini
+├── README.md
+├── requirements.txt
+├── tests/
+├── venv/
+
     
 
 
