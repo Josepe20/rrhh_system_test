@@ -74,49 +74,8 @@ DB CREDENTIALS
 
 ## Repository Architecture
 
-rrhh-system-api/
-├── __pycache__/
-├── .github/
-│   └── workflows/
-│       └── BudgetAction.yml
-├── alembic/
-├── app/
-│   ├── __init__.py
-│   ├── api/
-│   │   ├── index_router.py (main router)
-│   │   ├── employee/
-│   │   │   ├── employee_model.py
-│   │   │   ├── employee_schema.py
-│   │   │   ├── employee_router.py (user endpoints)
-│   │   │   ├── employee_view.py
-│   │   │   ├── employee_repository.py
-│   │   ├── department/
-│   │   ├── job_position/
-│   ├── middleware/
-│   │   └── exception_middleware.py
-│   ├── common/
-│   │   ├── functions/
-│   │   │   └── response_api.py (standard response)
-│   │   ├── schemas/
-│   │   │   └── response_api_schema.py (standard response schema)
-│   ├── main.py
-│   ├── config.py
-│   ├── database.py
-│   ├── dependencies.py
-├── bin/
-│   └── entrypoint.sh
-├── docker-compose.yml
-├── Dockerfile
-├── .env
-├── alembic.ini
-├── pytest.ini
-├── README.md
-├── requirements.txt
-├── tests/
-└── venv/
+![Repository Architecture](./docs/images/rrhh_system_api_architecture.drawio.png)
 
-
-    
 
 
 ## 🚀 About Me
